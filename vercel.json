@@ -12,8 +12,8 @@
       "dest": "server.js"
     },
     {
-      "src": "/socket.io/socket.io.js",
-      "dest": "server.js"
+      "src": "/socket.io/",
+      "dest": "socket.io.js"
     }
   ],
   "env": {
