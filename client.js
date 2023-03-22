@@ -15,18 +15,18 @@ function addUserToList() {
   }
 }
 
-// Événement de connexion du socket
-socket.on('connect', () => {
-  // Envoi des informations de l'utilisateur connecté au serveur
-  socket.emit('user connected', username);
-  socket.emit('user connected', connectedUsers);
-  console.log(connectedUsers);
-});
+// // Événement de connexion du socket
+// socket.on('connect', () => {
+//   // Envoi des informations de l'utilisateur connecté au serveur
+//   socket.emit('user connected', username);
+//   socket.emit('user connected', connectedUsers);
+//   console.log(connectedUsers);
+// });
 
-// Réception du nombre d'utilisateurs connectés et mise à jour de l'affichage
-socket.on('connected users', count => {
-  document.querySelector('.user').textContent = `${count} utilisateur(s) en ligne`;
-});
+// // Réception du nombre d'utilisateurs connectés et mise à jour de l'affichage
+// socket.on('connected users', count => {
+//   document.querySelector('.user').textContent = `${count} utilisateur(s) en ligne`;
+// });
 
 // Réception du nom d'utilisateur attribué par le serveur et ajout à la liste des utilisateurs connectés
 socket.on('username', name => {
