@@ -12,7 +12,7 @@
       "dest": "server.js"
     },
     {
-      "src": "/socket.io/",
+      "src": "/socket.io/socket.io.js",
       "dest": "socket.io.js"
     }
   ],

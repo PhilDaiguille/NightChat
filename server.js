@@ -63,7 +63,7 @@ io.on('connection', socket => {
 });
 
 // Démarrage du serveur sur le port spécifié ou 3000 par défaut
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 9001;
 http.listen(port, () => {
 	console.log("Server running");
 });
