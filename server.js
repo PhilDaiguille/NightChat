@@ -12,21 +12,16 @@ const anonyme = ["pomme", "banane", "orange", "kiwi", "ananas","carotte", "pomme
 let user = 0;
 let connectedUsers = [];
 
-// Route pour la page d'accueil
-app.get("/", (req, res) => {
-	res.sendFile(__dirname + '/index.html')
-});
-
-// Route pour le fichier client.js
-app.get("/client.js",(req, res) => {
-	res.setHeader('Content-Type', 'text/javascript');
-	res.sendFile(__dirname + '/client.js');
-});
-
-// Route pour le fichier style.css
-app.get("/css/style.css",(req, res) => {
-	res.setHeader('Content-Type', 'text/css');
-	res.sendFile(__dirname + '/css/style.css');
+app.get(["/", "/client.js", "/css/style.css"], (req, res) => {
+	if (req.url === "/") {
+	  res.sendFile(__dirname + '/index.html');
+	} else if (req.url === "/client.js") {
+	  res.setHeader('Content-Type', 'text/javascript');
+	  res.sendFile(__dirname + '/client.js');  
+	} else if (req.url === "/css/style.css") {
+	  res.setHeader('Content-Type', 'text/css');
+	  res.sendFile(__dirname + '/css/style.css');
+	}
 });
 
 // Gestion des connexions et déconnexions des utilisateurs
@@ -41,14 +36,15 @@ io.on('connection', socket => {
 	time = `${hours}:${minutes}`;
 	socket.emit('username', username);
 	socket.emit('time', time);
-	console.log(`le nombre d'utilisateur est de : ${user}`);
-	console.log("a user is connected");
+	console.log("======================================================================")
+	console.log(`un utilisateur est connecté , le nombre d'utilisateur est de : ${user}`);
+	console.log("======================================================================")
 	socket.on('disconnect', () => {
-		let index = connectedUsers.indexOf(username);
-		connectedUsers.splice(index, 1);
+		// let index = connectedUsers.indexOf(username);
+		// connectedUsers.splice(index, 1);
 		user--;
-		console.log("a user is disconnected");
-		console.log(`le nombre d'utilisateur est de : ${user}`);
+		console.log(`un utilisateur est déconnecté, le nombre d'utilisateur est de : ${user}`);	
+		console.log("======================================================================")
 	});
 	
 	// Gestion des messages du chat
@@ -57,13 +53,21 @@ io.on('connection', socket => {
 		let hours = now.getHours();
 		let minutes = now.getMinutes(); 
 		time = `${hours}:${minutes}`;
-        console.log(`message reçu : ${msg}`);
+        console.log(`Le message reçu : "${msg}" de : ${username}`);
+		console.log("======================================================================")
         io.emit('chat message', { username: username, message: msg, time : time });
     });
 });
 
 // Démarrage du serveur sur le port spécifié ou 3000 par défaut
-const port = process.env.PORT || 9001;
+const port = process.env.PORT || 3000;
 http.listen(port, () => {
-	console.log("Server running");
+	console.log("==========================")
+	if(port == 3000){
+		console.log(`Server running http://localhost:${port}`);
+	}
+	else{
+		console.log(`Server running http://${port}`);
+	}
+	console.log("==========================")
 });
