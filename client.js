@@ -20,7 +20,7 @@
   socket.on('connect', () => {
     // Envoi des informations de l'utilisateur connecté au serveur
     socket.emit('user connected', username);
-    console.log(connectedUsers);
+    // console.log(connectedUsers);
   });
 
   // Réception du nombre d'utilisateurs connectés et mise à jour de l'affichage
