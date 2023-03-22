@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Discord</title>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	<script src="/socket.io/socket.io.js"></script>
+	<main>
+		<section class="serveur">
+			<ul>
+				<li><img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt=""></li>
+				<li><img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt=""></li>
+				<li><img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt=""></li>
+				<li><img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt=""></li>
+				<li><img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt=""></li>
+				<li><img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt=""></li>
+				<li><img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt=""></li>
+				<li><img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt=""></li>
+			</ul>
+		</section>
+		<section class="utilisateur">
+
+		</section>
+		<section class="list">
+
+		</section>
+		<section>
+			<h2>Général</h2>
+			<div class="messages">
+				<ul id="messages">
+					
+				</ul>
+			</div>
+			<div class="envoie">
+				<input type="text" name="message" id="message-input">
+				<button onclick="send()">Envoyer</button>
+			</div>
+			
+		</section>
+		<section class="user">
+		</section>
+		
+	</main>
+	<script src="./client.js"></script>
+	<script src="./server.js"></script>
+</body>
+
+</html>
