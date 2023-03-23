@@ -1,4 +1,3 @@
-const io = require("socket.io-client");
 let choice = io() || io("https://night-chat-seven.vercel.app/");
 const socket = choice;
 let username = "";
