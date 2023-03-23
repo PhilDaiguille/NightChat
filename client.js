@@ -1,7 +1,7 @@
-
-  // Initialisation de la connexion socket.io
-  const socket = io();
-  let username = "";
+const io = require("socket.io-client");
+let choice = io() || io("https://night-chat-seven.vercel.app/");
+const socket = choice;
+let username = "";
 
   // Fonction pour ajouter l'utilisateur à la liste des utilisateurs connectés
   function addUserToList() {
