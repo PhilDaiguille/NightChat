@@ -1,5 +1,5 @@
-
-const app = require('express')();
+const express = require('express');
+const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
@@ -7,6 +7,9 @@ const anonyme = ["pomme", "banane", "orange", "kiwi", "ananas", "carotte", "pomm
 
 let user = 0;
 let connectedUsers = [];
+
+
+app.use('/assets', express.static(__dirname + '/assets'));
 app.get(["/", "/client.js", "/css/style.css", "/server.js", "/socket.io/socket.io.js"], (req, res) => {
 	if (req.url === "/") {
 		res.sendFile(__dirname + '/index.html');
