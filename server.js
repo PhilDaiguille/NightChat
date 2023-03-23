@@ -3,12 +3,10 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-
 const anonyme = ["pomme", "banane", "orange", "kiwi", "ananas", "carotte", "pomme de terre", "tomate", "poivron", "courgette", "fraise", "citron", "raisin", "mangue", "aubergine", "radis", "brocoli", "patate douce", "chou-fleur", "navet"];
 
 let user = 0;
 let connectedUsers = [];
-
 app.get(["/", "/client.js", "/css/style.css", "/server.js", "/socket.io/socket.io.js"], (req, res) => {
 	if (req.url === "/") {
 		res.sendFile(__dirname + '/index.html');

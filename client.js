@@ -7,7 +7,7 @@ let username = "";
     // Vérifie si l'utilisateur est déjà dans la liste
     if (!document.querySelector(`.user p[data-username="${username}"]`)) {
       document.querySelector('.user').innerHTML += `<figure>
-        <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="">
+        <img src="./assets/discord.png" alt="">
         <figcaption>
             <p data-username="${username}">${username}</p>
         </figcaption>
@@ -33,10 +33,23 @@ let username = "";
     addUserToList();
   });
 
-  // Fonction pour envoyer un message au serveur
+  const input = document.getElementById("message-input");
+  const button = document.getElementById("message-send");
+
+  input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+          send();
+      }
+  });
+
+  button.addEventListener("click", function(event){
+      send();
+  });
+
   const send = () => {
-      const text = document.getElementById("message-input").value;
+      const text = input.value;
       socket.emit('chat message', text);
+      input.value = "";
   };
 
   // Fonction pour recevoir un message du serveur et l'afficher dans la liste des messages
@@ -52,7 +65,7 @@ let username = "";
   socket.on('username', name => {
       username = name;
       document.querySelector('.utilisateur').innerHTML = `<figure>
-              <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="">
+              <img src="./assets/discord.png" alt="">
               <figcaption>
                   <p>${username}</p>
               </figcaption>

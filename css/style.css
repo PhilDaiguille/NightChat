@@ -125,13 +125,13 @@ main .envoie{
 	background-color: var(--color-4);
 	width: 85%;
 }
-main .envoie button{
+main .envoie input{
 	padding: 1rem 2rem;
 	cursor: pointer;
 	border-radius: .75rem;
 	border:solid .1rem #fff;
 }
-main .envoie button:hover{
+main .envoie input:hover{
 	background-color: #202225;
 }
 main .user{
