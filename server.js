@@ -21,10 +21,6 @@ app.get(["/", "/client.js", "/css/style.css", "/server.js", "/socket.io/socket.i
 		res.setHeader('Content-Type', 'text/javascript');
 		res.sendFile(__dirname + '/server.js');
 	}
-	else if (req.url === "/dist/bundle.js") {
-		res.setHeader('Content-Type', 'text/html');
-		res.sendFile(__dirname + '/dist/bundle.js');
-	}
 	else if (req.url === "/socket.io/socket.io.js") {
 		res.setHeader('Content-Type', 'text/javascript');
 		res.sendFile(__dirname + '/socket.io/socket.io.js');
