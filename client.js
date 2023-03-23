@@ -8,7 +8,7 @@
     // Vérifie si l'utilisateur est déjà dans la liste
     if (!document.querySelector(`.user p[data-username="${username}"]`)) {
       document.querySelector('.user').innerHTML += `<figure>
-        <img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt="">
+        <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="">
         <figcaption>
             <p data-username="${username}">${username}</p>
         </figcaption>
@@ -53,7 +53,7 @@
   socket.on('username', name => {
       username = name;
       document.querySelector('.utilisateur').innerHTML = `<figure>
-              <img src="https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png" alt="">
+              <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="">
               <figcaption>
                   <p>${username}</p>
               </figcaption>
